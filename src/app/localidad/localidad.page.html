@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Localidad</ion-title>
+    <ion-button slot="start">
+      <ion-back-button defaultHref="location">
+      </ion-back-button>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="localidad">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class=ion-text-center>{{localidad.name}}</ion-card-title>
+        <ion-card-subtitle class=ion-text-center>Tipo: {{localidad.type}}</ion-card-subtitle>
+        <ion-card-content>
+          <strong>Dimencion:</strong> {{localidad.dimension}}
+        </ion-card-content>
+
+      </ion-card-header>
+      <ion-card-content>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div>
+    <ion-list>
+      <ion-item *ngFor="let character of characters" [routerLink]="['/localidad/'+ character.id]">
+
+        <ion-label>{{character.name}}</ion-label>
+        <ion-avatar slot="start">
+          <img src="{{character.image}}" alt="">
+        </ion-avatar>
+
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
